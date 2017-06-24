@@ -1,0 +1,33 @@
+
+<!--
+  This template loads for the 'checkcout_payment' state (app.js)
+-->
+<ion-view view-title="支付方式">
+  <ion-content class="checkout">
+    <ion-list>
+
+      <ion-radio ng-model="choice" ng-value="'A'">
+        银行卡
+        <p class="text-hint">建设银行</p>
+      </ion-radio>
+
+      <ion-radio ng-model="choice" ng-value="'B'">
+        第三方支付
+        <p class="text-hint">支付宝</p>
+      </ion-radio>
+    </ion-list>
+
+    <div class="list">
+      <div class="item">
+        <input type="text" placeholder="输入密码"/>
+      </div>
+    </div>
+
+    <div class="padding">
+      <button class="button button-block button-energized" ui-sref="home">
+        确认付款
+      </button>
+    </div>
+
+  </ion-content>
+</ion-view>

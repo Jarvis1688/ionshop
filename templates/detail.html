@@ -1,0 +1,92 @@
+
+<!--
+  This template loads for the 'detail' state (app.js)
+  'product' is a $scope variable from DetailCtrl
+-->
+<!--  ion-view  一个内容的容器，用来告诉一个当前视图的父ionNavBar。-->
+<ion-view view-title="{{ product.name }}">
+  <ion-content class="product-detail">
+    <!-- Slider using slide box -->
+    <ion-slide-box class="full-image" auto-play="true">
+
+      <ion-slide ng-repeat="image in product.images">
+        <div class="box">
+          <img class="full-image" src="{{ image }}" alt=""/>
+        </div>
+      </ion-slide>
+
+    </ion-slide-box>
+
+    <!-- Choose item option -->
+    <div class="row">
+
+      <div class="col item-input item-options">
+        <select>
+          <option>蓝色</option>
+          <option selected>绿色</option>
+          <option>红色</option>
+        </select>
+      </div>
+
+      <div class="col item-input item-options">
+        <select>
+          <option>S 码</option>
+          <option selected>M 码</option>
+          <option>L 码</option>
+        </select>
+      </div>
+
+    </div>
+
+    <!-- Add to cart button -->
+    <div class="row add-cart">
+
+      <div class="col">
+        <p class="price dark" ng-if="!product.sale_price">￥{{ product.price }}</p>
+        <p class="price dark" ng-if="product.sale_price">￥{{ product.sale_price}}</p>
+        <span class="old-price" ng-if="product.sale_price">￥{{ product.price }}</span>
+      </div>
+
+      <div class="col">
+        <button class="button button-block button-energized">
+          <i class="ion-bag"></i>
+          立即购买
+        </button>
+      </div>
+    </div>
+
+    <!-- Description -->
+    <div class="linediv-l"></div>
+    <div class="padding">
+      <h4 class="positive">产品详情</h4>
+      {{ product.description }}
+    </div>
+
+    <div class="row">
+      <div class="col">
+        <h5 class="positive">可选颜色</h5>
+        <i class="ion-stop positive"></i>
+        <i class="ion-stop energized"></i>
+        <i class="ion-stop dark"></i>
+      </div>
+      <div class="col">
+        <h5 class="positive">可选尺码</h5>
+        S, M, L, XL
+      </div>
+    </div>
+
+    <!-- Item -->
+    <div class="item-divider padding">评论</div>
+    <div class="list">
+      <div class="item item-avatar" ng-repeat="review in product.reviews">
+        <img src="{{ review.avatar }}" alt=""/>
+        <h2>{{ review.name }}</h2>
+        <p>{{ review.content }}</p>
+        <p>
+          <i class="ion-android-star" ng-repeat="start in range(review.stars) track by $index"></i>
+          <i class="ion-android-star-outline" ng-repeat="start in range(5 - review.stars) track by $index"></i>
+        </p>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>

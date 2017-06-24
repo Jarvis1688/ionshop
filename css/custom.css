@@ -1,0 +1,26 @@
+
+
+
+ion-side-menus{
+    max-width: 768px !important;
+    margin: 0 auto;
+}
+
+.social-button{
+    text-align: center;
+}
+
+.social-button i {
+    font-size: 1.2em;
+    vertical-align: middle;
+    margin-left: 0.5em;
+    
+}
+
+.wechat-login {
+    background-color: #1D7B24;
+}
+
+.weibo-login {
+    background-color: #DA251C;
+}

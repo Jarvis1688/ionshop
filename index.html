@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+
+
+    <!-- compiled css output -->
+    <link href="css/ionic.app.css" rel="stylesheet">
+
+    <link href="lib/font-awesome/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="css/custom.css" rel="stylesheet">
+
+    <!-- ionic/angularjs js -->
+    <script src="lib/ionic/js/ionic.bundle.js"></script>
+
+    <!-- cordova script (this will be a 404 during development) -->
+    <script src="cordova.js"></script>
+
+    <!-- your app's js -->
+    <script src="js/app.js"></script>
+    <script src="js/controllers.js"></script>
+    <script src="js/services.js"></script>
+  </head>
+  <body ng-app="starter">
+
+    <div class="container" style="width:500px; margin:0 auto;">
+
+
+
+    <!--主页面模块-->
+    <ion-side-menus>
+
+    <!-- Center content -->
+    <ion-side-menu-content>
+
+      <!--头部导航-->
+      <ion-nav-bar class="bar-positive" align-title="center">
+        <!-- 返回按钮 -->
+        <ion-nav-back-button>
+          返回
+        </ion-nav-back-button>
+
+        <!-- 菜单展开按钮 -->
+        <ion-nav-buttons side="left">
+          <button class="button button-icon button-clear ion-navicon" menu-toggle="left">
+          </button>
+        </ion-nav-buttons>
+
+        <!-- 购物车按钮 -->
+        <ion-nav-buttons side="right">
+          <button class="button button-icon button-clear ion-bag" ui-sref="cart">
+            <span class="header-badge">5</span>
+          </button>
+        </ion-nav-buttons>
+      </ion-nav-bar>
+      <!--END 头部导航-->
+
+
+      <!-- 主体内容 ion-nav-view是存放模板的容器 -->
+      <ion-nav-view animation="slide-left-right"></ion-nav-view>
+      
+
+
+
+    </ion-side-menu-content>
+    <!--END 主页面模块-->
+
+
+
+    <!-- Left menu -->
+    <ion-side-menu side="left" class="dark-bg" ng-controller="menu">
+      <ion-content>
+
+        <!-- Search input on head of side menu -->
+        <ion-header-bar class="bar bar-light item-input-inset dark-bg">
+          <label class="item-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input type="search" placeholder="搜索">
+          </label>
+        </ion-header-bar>
+
+        <!-- 侧边栏菜单 -->
+        <div class="list" menu-close="">
+          <div class="item item-icon-lef" ui-sref="home">
+            <i class="icon ion-home"></i>
+            主页
+          </div>
+
+          <!--循环输出产品分类-->
+          <div ng-repeat="item in menus">
+
+              <!--产品分类-->
+
+              <div class="item item-icon-lef item-divider">
+                <a href="{{item.url}}">
+                  <i class="icon ion-man"></i>
+                  {{item.title}}
+                </a>
+              </div>
+              
+
+              <!--产品列表-->
+              
+              <div class="item item-icon-lef" ng-repeat="subitem in item.submenu">
+                <a href="{{subitem.url}}">
+                  <i class="icon ion-tshirt-outline"></i>
+                  {{subitem.title}}
+                </a>
+                
+              </div>
+
+          </div>
+
+
+          <!--Other 分类-->
+          <div class="item item-icon-lef item-divider">
+            <i class="icon ion-ios-gear"></i>
+            设置
+          </div>
+          <div class="item item-icon-lef" ui-sref="login">
+            <i class="icon ion-android-exit"></i>
+            退出
+          </div>
+
+
+
+        </div>
+
+      </ion-content>
+
+    </ion-side-menu>
+
+  </ion-side-menus>
+
+
+
+
+    </div>
+    <!--end container-->
+
+
+
+
+
+  </body>
+</html>

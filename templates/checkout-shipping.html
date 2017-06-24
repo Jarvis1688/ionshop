@@ -1,0 +1,39 @@
+
+<!--
+  This template loads for the 'checkout_shipping' state (app.js)
+-->
+<ion-view view-title="选择快递">
+  <ion-content class="checkout">
+    <ion-list>
+
+      <ion-radio ng-model="choice" ng-value="'A'">
+        顺丰
+        <p class="text-hint">运费 ￥16</p>
+      </ion-radio>
+
+      <ion-radio ng-model="choice" ng-value="'B'">
+        申通
+        <p class="text-hint">运费 ￥6</p>
+      </ion-radio>
+
+      <ion-radio ng-model="choice" ng-value="'B'">
+        圆通
+        <p class="text-hint">运费 ￥6</p>
+      </ion-radio>
+
+    </ion-list>
+
+    <!-- Shipping address-->
+    <div class="padding">
+      <h4 class="text-center">收货地址</h4>
+      上海市南京东路112号
+    </div>
+
+    <div class="padding">
+      <button class="button button-block button-energized" ui-sref="checkout_payment">
+       下一步
+      </button>
+    </div>
+
+  </ion-content>
+</ion-view>

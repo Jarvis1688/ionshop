@@ -1,0 +1,48 @@
+
+<!--
+  This template loads for the 'home' state (app.js)
+  'slides' and 'products' is $scope variable in HomeCtrl
+-->
+<ion-view view-title="主页">
+  <ion-content class="">
+
+
+    <!-- 幻灯片模块 ionic 滑动框组件-->
+    <ion-slide-box class="full-image" auto-play="true">
+
+      <ion-slide ng-repeat="slide in slides">
+        <div class="box">
+          <img class="full-image" src="{{ slide.url }}" alt=""/>
+        </div>
+      </ion-slide>
+
+    </ion-slide-box>
+    <!--END 幻灯片模块-->
+
+
+
+    <h4 class="text-center">发现我们的顶部</h4>
+    
+    <div class="item item-icon-lef" ui-sref="category" ng-repeat="item in menus">
+      <i class="icon ion-tshirt-outline"></i>
+        {{item.title}}
+    </div>
+
+
+    <!-- 产品列表  两列-->
+    <div class="row flex-wrap">
+      <div class="col-50" ng-repeat="item in products">
+        <a ui-sref="detail">
+          <img class="full-image" src="{{ item.thumb }}" alt=""/>
+          <span class="product-title">{{ item.name }}</span>
+          <span class="price dark" ng-if="!item.sale_price">￥{{ item.price }}</span>
+          <span class="price dark" ng-if="item.sale_price">￥{{ item.sale_price}}</span>
+          <span class="old-price" ng-if="item.sale_price">￥{{ item.price }}</span>
+        </a>
+      </div>
+
+    </div>
+    <!--END 产品列表-->
+
+  </ion-content>
+</ion-view>
